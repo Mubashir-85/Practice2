@@ -1,0 +1,18 @@
+name: CI/CD 
+on: [workflow_dispatch]
+jobs:
+    first-job:
+        runs-on: ubuntu-Latest
+        steps:
+            - name: First-step
+              run: echo "This is the first step"
+            - name: second-step
+              run: echo "this is the second step"
+    second-job:
+        needs: first-job
+        runs-on: ubuntu-Latest
+        steps:
+            - name: Test-step
+              run: echo "This is the test step"
+            - name: Test-code
+              uses: actions/checkout@v6
